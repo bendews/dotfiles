@@ -1,0 +1,29 @@
+[user]
+	name = Ben Dews
+	email = contact@bendews.com
+  	signingkey = ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDS8q2VolelhM66zsKH9PmxXvpeqg1uwYr2leIjzMECng6MOB+G0YxWjGM+qxe6llfCXOC5xIs0vEuW4r5JBozd01AWhYuIGIunxgEc0SqwZ+gSOsBU2iCiQ2oBhOxRXqALJAtWBXNyEdCDuSSjn8Habj7a7Wl0WFVxovY1IFmp9NOHPnCJSMurAOjlStSwBBWWFy/G+5oGWEiQSq5JjHNCCuntbn1jH5ALils9zYVAnw3mL00cQgpi+0n62ADIG1CDBjAOo14qhsgEixk/Imap4fnkIHsDIU3q3bqQVpmiSOW1gXmpKqNroJLx547A4h5+4gzBQvMIdo4Zh/8O78gR
+[credential]
+	helper = osxkeychain
+[core]
+	quotepath = false
+	excludesfile = ~/.gitignore
+[alias]
+	br = branch
+	cm = commit -m
+	co = checkout
+	st = status
+	amend = commit --amend
+	discard = checkout -- .
+	last = log -1 HEAD
+	latest = log -1 HEAD
+	unstage = reset HEAD --
+	uncommit = reset --soft HEAD~1
+	update = !git stash && git pull --rebase && git stash pop
+[init]
+	defaultBranch = main
+[gpg]
+  	format = ssh
+[gpg "ssh"]
+	program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+[commit]
+	gpgsign = true

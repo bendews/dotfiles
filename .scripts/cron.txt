@@ -1,0 +1,5 @@
+PATH=/usr/local/bin:/usr/bin:/bin
+
+0 12,20 */3 * *	/Users/bendews/.dotfiles/.scripts/cron/brew.sh
+0 * * * * /Users/bendews/.dotfiles/.scripts/cron/photos.sh
+0 12 * * * /Users/bendews/.dotfiles/.scripts/op-secrets.sh stash

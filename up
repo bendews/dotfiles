@@ -1,0 +1,101 @@
+#!/bin/bash
+
+function display {
+	echo -e "\n$1\n"
+}
+
+function createDirectories {
+	display '📂  Creating directories'
+	.scripts/dir.sh
+}
+
+function installApps {
+	display '🎱  Installing applications'
+	.scripts/install.sh
+}
+
+function setupMacOsPref {
+	display '🔧  Tweaking macOS preferences'
+	.scripts/macos.sh
+}
+
+function loginItems {
+	display '✨  Configure login items'
+	.scripts/login-items.sh
+}
+
+function stowFiles {
+	display '🗄  Stowing your .files to $HOME'
+	ls -d */ | xargs stow -vv -t $HOME
+}
+
+function unstashSecrets {
+	display '🔐  Unstashing secrets from 1Password'
+	display '🔐  Press enter once 1Password is configured'
+	read -n 1
+	.scripts/op-secrets.sh unstash
+}
+
+function applyGitIgnore {
+	display '🙅  Applying ~/.gitignore globally'
+	git config core.excludesfile $HOME/.gitignore
+}
+
+function generateSshKey {
+	display '🔑  Generating ssh key'
+	.scripts/ssh.sh
+}
+
+function scheduleCron {
+	display '📅  Scheduling crontab tasks'
+	crontab .scripts/cron.txt
+}
+
+function restartComputer {
+	display '🖥  All done! You may need to restart your computer'
+	.scripts/restart.sh
+}
+
+function runAll {
+	createDirectories
+	stowFiles
+	# source ~/.zshrc
+	installApps
+	setupMacOsPref
+	loginItems
+	unstashSecrets
+	applyGitIgnore
+	scheduleCron
+	# restartComputer
+}
+
+function menu {
+	echo -e "usage:"
+	echo -e "	./up apps - install apps"
+	echo -e "	./up ssh-key - set up ssh keys"
+	echo -e "	./up stow - stow files"
+	echo -e "	./up all - run all commands"
+}
+
+cat banner
+
+case $1 in
+	apps )
+		installApps
+		;;
+	ssh-key )
+		generateSshKey
+		;;
+	stow )
+		stowFiles
+		;;
+	all )
+		runAll
+		;;
+	help )
+		menu
+		;;
+	* )
+		menu
+		;;
+esac
