@@ -66,7 +66,7 @@ function runAll {
 	unstashSecrets
 	applyGitIgnore
 	scheduleCron
-	# restartComputer
+	restartComputer
 }
 
 function menu {
@@ -80,22 +80,22 @@ function menu {
 cat banner
 
 case $1 in
-	apps )
-		installApps
-		;;
-	ssh-key )
-		generateSshKey
-		;;
-	stow )
-		stowFiles
-		;;
-	all )
-		runAll
-		;;
-	help )
-		menu
-		;;
-	* )
-		menu
-		;;
+apps)
+	installApps
+	;;
+ssh-key)
+	generateSshKey
+	;;
+stow)
+	stowFiles
+	;;
+all)
+	runAll
+	;;
+help)
+	menu
+	;;
+*)
+	menu
+	;;
 esac

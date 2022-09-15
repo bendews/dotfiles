@@ -42,7 +42,7 @@ xcode-select --install
 Clone this repository
 
 ```
-git clone https://github.com/jsstrn/dotfiles.git ~/.dotfiles
+git clone https://github.com/bendews/dotfiles.git ~/.dotfiles
 ```
 
 Change into the directory
