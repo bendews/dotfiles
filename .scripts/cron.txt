@@ -1,5 +1,5 @@
 PATH=/usr/local/bin:/usr/bin:/bin
 
-0 12,20 */3 * *	/Users/bendews/.dotfiles/.scripts/cron/brew.sh
-0 * * * * /Users/bendews/.dotfiles/.scripts/cron/photos.sh /Volumes/T7/Lightroom /Volumes/T7/Originals
+0 12,20 */3 * *	/Users/bendews/.dotfiles/.scripts/homebrew.sh
+0 13,21 * * * /Users/bendews/.dotfiles/.scripts/photos.sh /Volumes/T7/Lightroom /Volumes/T7/Originals
 0 12 * * * /Users/bendews/.dotfiles/.scripts/op-secrets.sh stash

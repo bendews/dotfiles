@@ -1,20 +1,24 @@
 #!/bin/bash
 
+REPO_PATH=/Users/bendews/.dotfiles
+DOCUMENT_TITLE="Dotfiles Secret Files"
+DOCUMENT_PATH=$REPO_PATH/secrets.tar.gz
+SECRETS_PATH=$REPO_PATH/secrets
+
 function stash {
     op account get >/dev/null || eval $(op signin)
-    if test -e "$HOME/.kube/config"; then op document edit "Kube Config" "$HOME/.kube/config"; fi
-    if test -e "$HOME/.azure/credentials"; then op document edit "Azure Credentials" "$HOME/.azure/credentials"; fi
-    if test -e "$HOME/.local/share/fish/fish_history"; then op document edit "Fish Shell History" "$HOME/.local/share/fish/fish_history"; fi
+    tar -cvzf $DOCUMENT_PATH -C $SECRETS_PATH .
+    op item get "$DOCUMENT_TITLE" && op document edit "$DOCUMENT_TITLE" $DOCUMENT_PATH || op document create $DOCUMENT_PATH --title="$DOCUMENT_TITLE"
+    rm -rf $DOCUMENT_PATH
 }
 
 function unstash {
     op account get >/dev/null || eval $(op signin)
-    if test -e "$HOME/.kube/config"; then rm -rf "$HOME/.kube/config"; fi
-    if test -e "$HOME/.azure/credentials"; then rm -rf "$HOME/.azure/credentials"; fi
-    if test -e "$HOME/.local/share/fish/fish_history"; then rm -rf "$HOME/.local/share/fish/fish_history"; fi
-    op document get "Kube Config" --output="$HOME/.kube/config"
-    op document get "Azure Credentials" --output="$HOME/.azure/credentials"
-    op document get "Fish Shell History" --output="$HOME/.local/share/fish/fish_history"
+    rm -rf $DOCUMENT_PATH
+    mkdir -p $SECRETS_PATH
+    op document get "$DOCUMENT_TITLE" --output=$DOCUMENT_PATH
+    tar -xvzf $DOCUMENT_PATH -C $SECRETS_PATH
+    rm -rf $DOCUMENT_PATH
 }
 
 case $1 in

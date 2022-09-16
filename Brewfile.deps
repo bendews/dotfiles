@@ -1,0 +1,5 @@
+cask_args appdir: "/Applications"
+
+brew "stow"
+cask "1password"
+cask "1password-cli"

@@ -19,6 +19,12 @@ defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool 
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
+# Switch to fish shell
+if ! echo $SHELL | grep fish; then
+	sudo sh -c 'echo $(which fish) >> /etc/shells'
+	chsh -s $(which fish)
+fi
+
 # Restart applications
 killall Dock
 killall Finder

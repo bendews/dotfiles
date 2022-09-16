@@ -4,14 +4,15 @@ function display {
 	echo -e "\n$1\n"
 }
 
-function createDirectories {
-	display '📂  Creating directories'
-	.scripts/dir.sh
+function init {
+	display '⏰  Install & initiate dependencies'
+	.scripts/homebrew.sh init
+	brew install stow
 }
 
 function installApps {
 	display '🎱  Installing applications'
-	.scripts/install.sh
+	.scripts/homebrew.sh
 }
 
 function setupMacOsPref {
@@ -41,11 +42,6 @@ function applyGitIgnore {
 	git config core.excludesfile $HOME/.gitignore
 }
 
-function generateSshKey {
-	display '🔑  Generating ssh key'
-	.scripts/ssh.sh
-}
-
 function scheduleCron {
 	display '📅  Scheduling crontab tasks'
 	crontab .scripts/cron.txt
@@ -57,9 +53,8 @@ function restartComputer {
 }
 
 function runAll {
-	createDirectories
+	init
 	stowFiles
-	# source ~/.zshrc
 	installApps
 	setupMacOsPref
 	loginItems
