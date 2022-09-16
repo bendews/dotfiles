@@ -1,35 +1,14 @@
 # dotfiles
 
-These be the dotfiles. Get a fresh Mac up and running in less time than it takes to do it manually.
+My barebones dotfiles. Get a fresh Mac up and running in less time than it takes to do it manually.
+
+Uses `1Password` to store secret files as a tar archive, uses `stow` to restore dotfiles to correct locations (including secrets).
 
 ## Steps
 
 1. Check that your Brewfile is up to date and push any changes to this repository
 2. [Erase your disk](https://support.apple.com/en-us/HT208496) and [reinstall macOS](https://support.apple.com/en-us/HT204904)
 3. Clone this Git repository and run the scripts
-
-## Format your machine
-
-Follow these steps to format your disk and reinstall macOS
-
-1. Turn off your machine
-2. Hold on to <kbd>Option</kbd> + <kbd>Command</kbd> + <kbd>R</kbd> and turn your machine on
-3. Select **Disk Utility** and erase your disk
-4. Select **Reinstall macOS**
-
-⚠️ You must reinstall to macOS Mojave or higher if you format your disk to APFS. Otherwise stick to Mac OS Extended for older macOS versions. 
-
-Follow these guides to [erase your disk](https://support.apple.com/en-us/HT208496) and [reinstall macOS](https://support.apple.com/en-us/HT204904)
-
-### macOS recovery mode
-
-Use one of these shortcuts to reboot your machine in macOS recovery mode.
-
-|Shortcut |Details |
-|---|---|
-|<kbd>Command</kbd> + <kbd>R</kbd> | Install the latest macOS that was installed on your Mac |
-|<kbd>Option</kbd> + <kbd>Command</kbd> + <kbd>R</kbd> | Upgrade to the latest macOS compatible with your Mac (recommended) |
-|<kbd>Shift</kbd> + <kbd>Option</kbd> + <kbd>R</kbd> | Install the macOS that came with your Mac, or the closest version still available |
 
 ## Usage
 
@@ -51,13 +30,19 @@ Change into the directory
 cd ~/.dotfiles
 ```
 
-Install all applications 
+Install everything
+
+```
+./up all
+```
+
+(Optional) Only install apps
 
 ```
 ./up apps
 ```
 
-Install all .dotfiles
+(Optional) Only install .dotfiles
 
 ```
 ./up stow
