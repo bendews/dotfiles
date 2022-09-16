@@ -2,7 +2,7 @@
 # I like keeping things stock :)
 
 # Close System Preferences to prevent overriding settings we’re about to change
-osascript -e 'tell application "System Preferences" to quit'
+osascript -e 'tell application "System Settings" to quit'
 
 # Ask for administrator password upfront
 sudo --validate

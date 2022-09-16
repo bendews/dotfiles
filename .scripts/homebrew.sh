@@ -37,10 +37,12 @@ function install {
 function maintenance {
 	# Update brew
 	brew update
-
+	# Upgrade all packages
+	brew upgrade
 	# Remove old versions of packages
 	brew cleanup
-	brew cask cleanup
+	# Remove dependencies that are no longer required
+	brew autoremove
 }
 
 case $1 in
@@ -48,6 +50,9 @@ init)
 	init
 	;;
 install)
+	install
+	;;
+maintenance)
 	install
 	;;
 *)
