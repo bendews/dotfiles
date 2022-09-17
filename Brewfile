@@ -26,7 +26,6 @@ brew "wget"
 # UI Apps
 cask "1password-cli"
 cask "1password"
-cask "adobe-creative-cloud"
 cask "aerial"
 cask "google-chrome"
 cask "monitorcontrol"
@@ -43,3 +42,4 @@ mas "Microsoft Word", id: 462054704
 mas "Pages", id: 409201541
 mas "Paprika Recipe Manager 3", id: 1303222628
 mas "Strongbox", id: 1270075435
+mas "Adobe Lightroom", id: 1451544217
