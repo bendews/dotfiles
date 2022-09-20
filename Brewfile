@@ -23,7 +23,6 @@ brew "trash"
 brew "tree"
 brew "wget"
 
-# UI Apps
 cask "1password-cli"
 cask "1password"
 cask "aerial"
@@ -32,10 +31,13 @@ cask "monitorcontrol"
 cask "postman"
 cask "visual-studio-code"
 cask "wireshark"
+cask "intune-company-portal"
+cask "soulver"
 
 mas "1Password for Safari", id: 1569813296
 mas "Keynote", id: 409183694
 mas "Magnet", id: 441258766
+mas "Microsoft Excel", id: 462058435
 mas "Microsoft Powerpoint", id: 462062816
 mas "Microsoft Remote Desktop", id: 1295203466
 mas "Microsoft Word", id: 462054704
