@@ -23,6 +23,7 @@ brew "trash"
 brew "tree"
 brew "wget"
 
+cask "0-ad"
 cask "1password-cli"
 cask "1password"
 cask "aerial"
