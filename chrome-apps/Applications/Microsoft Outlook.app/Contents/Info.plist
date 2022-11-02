@@ -32,7 +32,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>5249.103</string>
+	<string>5304.87</string>
 	<key>CrAppModeShortcutID</key>
 	<string>dnbnnnhjocpglknpbaaajdkbapeamick</string>
 	<key>CrAppModeShortcutName</key>
@@ -44,7 +44,7 @@
 	<key>CrBundleIdentifier</key>
 	<string>com.google.Chrome</string>
 	<key>CrBundleVersion</key>
-	<string>106.0.5249.103</string>
+	<string>107.0.5304.87</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTSDKBuild</key>
